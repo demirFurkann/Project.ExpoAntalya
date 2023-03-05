@@ -9,6 +9,28 @@ namespace Project.ENTITIES.Models
 {
     public class Order:BaseEntity
     {
+
+        public int? EmployeeID { get; set; }
+
+        public int? CustomerID { get; set; }
+        //Relational Properties
+
+
+        public virtual Employee Employee { get; set; }
+
+        public virtual Customer Customer { get; set; }
+
+        public virtual List<OrderExtra> OrderExtras { get; set; }
+
+
+
+
+
+
+
+
+
+
         public Order()
         {
             Extras = new List<Extra>();

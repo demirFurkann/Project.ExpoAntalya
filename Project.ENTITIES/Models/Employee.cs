@@ -6,20 +6,16 @@ using System.Threading.Tasks;
 
 namespace Project.ENTITIES.Models
 {
-    public class Customer:BaseEntity
-    {
+	public class Employee:BaseEntity
+	{
+        public string UserName { get; set; }
 
-        public string CompanyName { get; set; }
-
-        public string PhoneNo { get; set; }
+        public string Password { get; set; }
 
         //Relational Properties
 
+        public virtual EmployeeProfile EmployeeProfile { get; set; }
 
         public virtual List<Order> Orders { get; set; }
-
-
-
-
     }
 }

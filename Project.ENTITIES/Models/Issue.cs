@@ -9,7 +9,13 @@ namespace Project.ENTITIES.Models
 {
     public class Issue:BaseEntity
     {
-        public string Description { get; set; }
+		//Relational Property
+		public virtual List<SaloonIssue> SaloonIssues { get; set; }
+
+
+
+
+		public string Description { get; set; }
         public string IssueType { get; set; }
 
         public override string ToString()

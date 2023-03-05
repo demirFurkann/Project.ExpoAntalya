@@ -45,10 +45,14 @@
     <Compile Include="Enums\DataStatus.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeProfile.cs" />
     <Compile Include="Models\Extra.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderExtra.cs" />
     <Compile Include="Models\Saloon.cs" />
+    <Compile Include="Models\SaloonIssue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

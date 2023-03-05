@@ -12,6 +12,14 @@ namespace Project.ENTITIES.Models
 
         public decimal UnitPrice { get; set; }
 
-       
-    }
+
+
+
+		//Relational Properties
+
+		public virtual List<OrderExtra> OrderExtras { get; set; }
+
+
+
+	}
 }
