@@ -55,8 +55,9 @@
             this.cmbSaloon = new System.Windows.Forms.ComboBox();
             this.chbTouilet = new System.Windows.Forms.CheckBox();
             this.grpExtra = new System.Windows.Forms.GroupBox();
-            this.chbTv = new System.Windows.Forms.CheckBox();
             this.chbMeetingRoom = new System.Windows.Forms.CheckBox();
+            this.chbTv = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpExtra.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +100,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(171, 20);
             this.dateTimePicker1.TabIndex = 72;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnContinue
             // 
@@ -330,17 +332,6 @@
             this.grpExtra.TabStop = false;
             this.grpExtra.Text = "Extra";
             // 
-            // chbTv
-            // 
-            this.chbTv.AutoSize = true;
-            this.chbTv.Location = new System.Drawing.Point(113, 55);
-            this.chbTv.Name = "chbTv";
-            this.chbTv.Size = new System.Drawing.Size(39, 17);
-            this.chbTv.TabIndex = 76;
-            this.chbTv.Tag = "150";
-            this.chbTv.Text = "Tv";
-            this.chbTv.UseVisualStyleBackColor = true;
-            // 
             // chbMeetingRoom
             // 
             this.chbMeetingRoom.AutoSize = true;
@@ -352,11 +343,31 @@
             this.chbMeetingRoom.Text = "Meeting Room";
             this.chbMeetingRoom.UseVisualStyleBackColor = true;
             // 
+            // chbTv
+            // 
+            this.chbTv.AutoSize = true;
+            this.chbTv.Location = new System.Drawing.Point(113, 55);
+            this.chbTv.Name = "chbTv";
+            this.chbTv.Size = new System.Drawing.Size(39, 17);
+            this.chbTv.TabIndex = 76;
+            this.chbTv.Tag = "150";
+            this.chbTv.Text = "Tv";
+            this.chbTv.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(853, 520);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 20);
+            this.label1.TabIndex = 79;
+            this.label1.Text = "label1";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1324, 652);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpExtra);
             this.Controls.Add(this.cmbSaloon);
             this.Controls.Add(this.rdbMedium);
@@ -423,5 +434,6 @@
         private System.Windows.Forms.GroupBox grpExtra;
         private System.Windows.Forms.CheckBox chbMeetingRoom;
         private System.Windows.Forms.CheckBox chbTv;
+        private System.Windows.Forms.Label label1;
     }
 }

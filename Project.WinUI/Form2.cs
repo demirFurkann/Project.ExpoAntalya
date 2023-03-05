@@ -1,4 +1,5 @@
-﻿using Project.ENTITIES.Models;
+﻿using Project.BLL.GenericRepository.ConcRep;
+using Project.ENTITIES.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,18 @@ namespace Project.WinUI
 {
     public partial class Form2 : Form
     {
+        OrderRepository _orderRep;
+        OrderExtraRepository _orderExtrasRep;
+        CustomerRepository _customerRep;
+        IssueRepository _issueRep;
+
         public Form2()
         {
             InitializeComponent();
+            _orderExtrasRep= new OrderExtraRepository();
+            _orderRep = new OrderRepository();
+            _customerRep = new CustomerRepository();
+            _issueRep = new IssueRepository();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -23,9 +33,8 @@ namespace Project.WinUI
             List<Issue> Issues = new List<Issue> 
             {
                 new Issue {IssueType="Elektirik"},
-                new Issue {IssueType="Tuvalet"},
-                new Issue {IssueType="Hava"},
-                new Issue {IssueType="Projeksiyon"},
+                new Issue {IssueType="Tuvalet"}
+
 
 
             };
@@ -36,10 +45,9 @@ namespace Project.WinUI
 
             List<Saloon> Salonlar = new List<Saloon>
             {
-                new Saloon {SaloonName="Normal Oda",UnitPrice=50,Description ="Her kaliteye hizmet eder"},
-                new Saloon {SaloonName="Suit Oda", UnitPrice =100,Description ="Orta sınıf iyiliğinde"},
-                
-                new Saloon {SaloonName="Kral Oda", UnitPrice=150,Description ="Yüksek kalite"}
+                new Saloon {SaloonName="100 m2",UnitPrice=50,Description ="Her kaliteye hizmet eder"},
+                new Saloon {SaloonName="200 m2", UnitPrice =100,Description ="Orta sınıf iyiliğinde"},              
+                new Saloon {SaloonName="300 m2", UnitPrice=150,Description ="Yüksek kalite"}
             };
             foreach (Saloon item in Salonlar)
             {
@@ -68,6 +76,7 @@ namespace Project.WinUI
             
             c.CompanyName = txtCompanyName.Text;
             c.PhoneNo = txtPhoneNumber.Text;
+            _customerRep.Add(c);
 
             if (cmbSaloon.SelectedItem ==null)
             {
@@ -93,11 +102,10 @@ namespace Project.WinUI
                     OrderExtra ordext = new OrderExtra();
                     ordext.Extra.Name= item.Text;
                     ordext.Extra.UnitPrice = Convert.ToDecimal(item.Tag);
-                    o.OrderExtras.Add(ordext);
-                    
-                    
+                    o.OrderExtras.Add(ordext);  
                 }
             }
+            _orderRep.Add(o);
             o.TutarHesapla();
             lstStands.Items.Add(o);
         }
@@ -105,14 +113,25 @@ namespace Project.WinUI
         private void btnAddIssue_Click(object sender, EventArgs e)
         {
             Issue i = new Issue();
-
+            SaloonIssue si = new SaloonIssue();
+            
             i.IssueType = (cmbIssueType.SelectedItem as Issue).IssueType;
             i.Description = txtDetails.Text;
-            
+            si.Issue = i;
+            _issueRep.Add(i);
             lstIssues.Items.Add(i);
+
+        }
+        
+       
+        private void lstIssues_Click(object sender, EventArgs e)
+        {
+
+
+
         }
 
-        private void lstIssues_Click(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

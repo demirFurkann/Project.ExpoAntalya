@@ -9,6 +9,11 @@ namespace Project.ENTITIES.Models
 {
     public class Issue:BaseEntity
     {
+
+        public Issue()
+        {
+            
+        }
 		//Relational Property
 		public virtual List<SaloonIssue> SaloonIssues { get; set; }
 
