@@ -8,6 +8,10 @@ namespace Project.ENTITIES.Models
 {
 	public class SaloonIssue:BaseEntity
 	{
+        public SaloonIssue()
+        {
+            Issue = new Issue();
+        }
         public int SaloonID { get; set; }
 
         public int IssueID { get; set; }
