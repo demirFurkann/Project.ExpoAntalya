@@ -1,4 +1,5 @@
-﻿using Project.ENTITIES.Models;
+﻿using Project.BLL.GenericRepository.ConcRep;
+using Project.ENTITIES.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,18 @@ namespace Project.WinUI
 {
     public partial class Form2 : Form
     {
+        OrderExtraRepository _orderExtraRep;
+        OrderRepository _orderRep;
+        IssueRepository _issueRep;
+        CustomerRepository _customerRep;
         public Form2()
         {
+            _orderExtraRep= new OrderExtraRepository();
+            _orderRep= new OrderRepository();
+            _issueRep= new IssueRepository();
+            _customerRep= new CustomerRepository();
+
+            
             InitializeComponent();
         }
 
@@ -36,10 +47,10 @@ namespace Project.WinUI
 
             List<Saloon> Salonlar = new List<Saloon>
             {
-                new Saloon {SaloonName="Normal Oda",UnitPrice=50,Description ="Her kaliteye hizmet eder"},
-                new Saloon {SaloonName="Suit Oda", UnitPrice =100,Description ="Orta sınıf iyiliğinde"},
+                new Saloon {SaloonName="100m2",UnitPrice=50,Description ="Her kaliteye hizmet eder"},
+                new Saloon {SaloonName="200m2", UnitPrice =100,Description ="Orta sınıf iyiliğinde"},
                 
-                new Saloon {SaloonName="Kral Oda", UnitPrice=150,Description ="Yüksek kalite"}
+                new Saloon {SaloonName="300m2", UnitPrice=150,Description ="Yüksek kalite"}
             };
             foreach (Saloon item in Salonlar)
             {
@@ -68,6 +79,7 @@ namespace Project.WinUI
             
             c.CompanyName = txtCompanyName.Text;
             c.PhoneNo = txtPhoneNumber.Text;
+            _customerRep.Add(c);
 
             if (cmbSaloon.SelectedItem ==null)
             {
@@ -96,28 +108,35 @@ namespace Project.WinUI
                     o.OrderExtras.Add(ordext);
                     
                     
+                    
                 }
             }
             o.TutarHesapla();
             lstStands.Items.Add(o);
+            _orderRep.Add(o);
 
             o.DeliveryDate = dateTimePicker1.Value;
             lblTeslim.Text = dateTimePicker1.Value.ToString();
          
 
         }
-
+        
         private void btnAddIssue_Click(object sender, EventArgs e)
         {
             Issue i = new Issue();
-
+            SaloonIssue saloonIssue= new SaloonIssue();
            // i.IssueType = (cmbIssueType.SelectedItem as Issue).IssueType;
             i.Description = txtDetails.Text;
+            saloonIssue.Issue = i;
+            _issueRep.Add(i);
             
             lstIssues.Items.Add(i);
 
             Order ord = new Order();
+            
             ord.DeliveryDate = dateTimePicker1.Value;
+            
+            
 
             
            
@@ -127,6 +146,8 @@ namespace Project.WinUI
                 dateTimePicker1.Value = ord.DeliveryDate.Value;
               
 				dateTimePicker1.Value = ord.DeliveryDate.Value.AddDays(3);
+
+                lblTeslim.Text = dateTimePicker1.Value.ToString();
 			}
        
         }
