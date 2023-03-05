@@ -100,21 +100,36 @@ namespace Project.WinUI
             }
             o.TutarHesapla();
             lstStands.Items.Add(o);
+
+            o.DeliveryDate = dateTimePicker1.Value;
+            lblTeslim.Text = dateTimePicker1.Value.ToString();
+         
+
         }
 
         private void btnAddIssue_Click(object sender, EventArgs e)
         {
             Issue i = new Issue();
 
-            i.IssueType = (cmbIssueType.SelectedItem as Issue).IssueType;
+           // i.IssueType = (cmbIssueType.SelectedItem as Issue).IssueType;
             i.Description = txtDetails.Text;
             
             lstIssues.Items.Add(i);
-        }
 
-        private void lstIssues_Click(object sender, EventArgs e)
-        {
+            Order ord = new Order();
+            ord.DeliveryDate = dateTimePicker1.Value;
 
+            
+           
+
+            if (dateTimePicker1.Value != null)
+            {
+                dateTimePicker1.Value = ord.DeliveryDate.Value;
+              
+				dateTimePicker1.Value = ord.DeliveryDate.Value.AddDays(3);
+			}
+       
         }
-    }
+     
+	}
 }

@@ -18,7 +18,10 @@ namespace Project.ENTITIES.Models
 		public string Description { get; set; }
         public string IssueType { get; set; }
 
-        public override string ToString()
+		public DateTime? DelayDate { get; set; }
+
+
+		public override string ToString()
         {
             if (Description ==null)
             {

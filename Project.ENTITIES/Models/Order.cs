@@ -14,6 +14,9 @@ namespace Project.ENTITIES.Models
         {
             OrderExtras = new List<OrderExtra>();
         }
+
+        public DateTime? DeliveryDate { get; set; }
+
         public int? SaloonID { get; set; }
         public int? EmployeeID { get; set; }
 
