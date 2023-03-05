@@ -65,7 +65,7 @@ namespace Project.WinUI
         {
             Order o = new Order();
             Customer c = new Customer();
-
+            
             c.CompanyName = txtCompanyName.Text;
             c.PhoneNo = txtPhoneNumber.Text;
 
@@ -90,10 +90,12 @@ namespace Project.WinUI
             {
                 if (item.Checked)
                 {
-                    Extra ext = new Extra();
-                    ext.Name = item.Text;
-                    ext.UnitPrice = Convert.ToDecimal(item.Tag);
-                    o.Extras.Add(ext);
+                    OrderExtra ordext = new OrderExtra();
+                    ordext.Extra.Name= item.Text;
+                    ordext.Extra.UnitPrice = Convert.ToDecimal(item.Tag);
+                    o.OrderExtras.Add(ordext);
+                    
+                    
                 }
             }
             o.TutarHesapla();
@@ -106,7 +108,7 @@ namespace Project.WinUI
 
             i.IssueType = (cmbIssueType.SelectedItem as Issue).IssueType;
             i.Description = txtDetails.Text;
-
+            
             lstIssues.Items.Add(i);
         }
 

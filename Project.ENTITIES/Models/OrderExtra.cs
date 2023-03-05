@@ -10,6 +10,10 @@ namespace Project.ENTITIES.Models
 
 
 	{
+        public OrderExtra()
+        {
+            Extra = new Extra();
+        }
 
         public int OrderID { get; set; }
 

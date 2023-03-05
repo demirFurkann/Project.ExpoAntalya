@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.MAP.Options
 {
-	public class EmployeeProfileMap:BaseMap<Employee>
+	public class EmployeeProfileMap:BaseMap<EmployeeProfile>
 	{
         public EmployeeProfileMap()
         {

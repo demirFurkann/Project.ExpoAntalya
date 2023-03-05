@@ -10,49 +10,35 @@ namespace Project.ENTITIES.Models
     public class Order:BaseEntity
     {
 
+        public Order()
+        {
+            OrderExtras = new List<OrderExtra>();
+        }
+        public int? SaloonID { get; set; }
         public int? EmployeeID { get; set; }
 
         public int? CustomerID { get; set; }
-        //Relational Properties
 
-
-        public virtual Employee Employee { get; set; }
-
-        public virtual Customer Customer { get; set; }
-
-        public virtual List<OrderExtra> OrderExtras { get; set; }
-
-
-
-
-
-
-
-
-
-
-        public Order()
-        {
-            Extras = new List<Extra>();
-        }
         public decimal UnitPrice { get; set; }
         public  Activity Active { get; set; }
 
-        public List<Extra> Extras { get; set; }
+        //public List<Extra> Extras { get; set; }
 
-        public Saloon Saloon { get; set; }
+       
 
         public override string ToString()
         {
-            if (Extras.Count <1)
+
+
+            if (OrderExtras.Count<1)
             {
                 return $"{Saloon.SaloonName} fiyatı => {UnitPrice:C2}";
             }
             string extras = null;
 
-            foreach (Extra item in Extras)
+            foreach (OrderExtra item in OrderExtras)
             {
-                extras += $"{item.Name}, ";
+                extras += $"{item.Extra.Name}, ";
             }
             return $"{Saloon.SaloonName} Salonu, İçindeki extralar => {extras} Fiyat: {UnitPrice:C2}";
         }
@@ -75,11 +61,21 @@ namespace Project.ENTITIES.Models
               
             }
 
-            foreach (Extra item in Extras)
+            foreach (OrderExtra item in OrderExtras)
             {
-                UnitPrice += item.UnitPrice;
+                UnitPrice += item.Extra.UnitPrice;
             }
     
         }
+
+        //Relational Properties
+
+        public virtual Saloon Saloon { get; set; }
+        public virtual Employee Employee { get; set; }
+
+        public virtual Customer Customer { get; set; }
+
+        public virtual List<OrderExtra> OrderExtras { get; set; }
+
     }
 }

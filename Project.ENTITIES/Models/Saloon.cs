@@ -31,6 +31,7 @@ namespace Project.ENTITIES.Models
         public virtual List<SaloonIssue> SaloonIssues { get; set; }
 
         public virtual List<Stand> Stands { get; set; }
+        public virtual List<Order> Orders { get; set; }
 
 
 
