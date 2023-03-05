@@ -1,9 +1,9 @@
 ﻿using Project.BLL.DesignPatterns.SingletonPattern;
 using Project.BLL.GenericRepository.IntRep;
-using Project.DAL.ContextClasses;
 using Project.ENTITIES.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -13,7 +13,7 @@ namespace Project.BLL.GenericRepository.BaseRep
 {
     public abstract class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        MyContext _db;
+        DbContext _db;
         public BaseRepository()
         {
             _db = DBTool.DbInstance;
