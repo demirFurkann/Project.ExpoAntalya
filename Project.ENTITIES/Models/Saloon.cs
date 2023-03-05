@@ -13,7 +13,7 @@ namespace Project.ENTITIES.Models
 
         public virtual List<SaloonIssue> SaloonIssues { get; set; }
 
-
+        
         public string SaloonName { get; set; }
         public string Description { get; set; }
 

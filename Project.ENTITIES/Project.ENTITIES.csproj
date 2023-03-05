@@ -53,6 +53,7 @@
     <Compile Include="Models\OrderExtra.cs" />
     <Compile Include="Models\Saloon.cs" />
     <Compile Include="Models\SaloonIssue.cs" />
+    <Compile Include="Models\Stand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

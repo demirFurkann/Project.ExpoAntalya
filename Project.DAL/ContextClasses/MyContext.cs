@@ -28,6 +28,7 @@ namespace Project.DAL.ContextClasses
             modelBuilder.Configurations.Add(new OrderExtraMap());
             modelBuilder.Configurations.Add(new SaloonMap());
             modelBuilder.Configurations.Add(new SaloonIssueMap());
+            modelBuilder.Configurations.Add(new StandMap());
         }
 
         public DbSet<Order> Orders { get; set; }
@@ -39,5 +40,6 @@ namespace Project.DAL.ContextClasses
         public DbSet<Saloon> Saloons { get; set; }
         public DbSet<SaloonIssue> SaloonIssues { get; set; }
         public DbSet<Extra> Extras { get; set; }
+        public DbSet<Stand> Stands { get; set; }
     }
 }

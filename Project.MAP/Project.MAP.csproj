@@ -61,6 +61,7 @@
     <Compile Include="Options\OrderMap.cs" />
     <Compile Include="Options\SaloonIssueMap.cs" />
     <Compile Include="Options\SaloonMap.cs" />
+    <Compile Include="Options\StandMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
