@@ -9,11 +9,6 @@ namespace Project.ENTITIES.Models
     public class Saloon:BaseEntity
     {
 
-        //Relational Properties
-
-        public virtual List<SaloonIssue> SaloonIssues { get; set; }
-
-        
         public string SaloonName { get; set; }
         public string Description { get; set; }
 
@@ -29,5 +24,15 @@ namespace Project.ENTITIES.Models
         {
             return $"Açıklaması => {Description} => Fiyatı : {UnitPrice:C2}";
         }
+
+
+        //Relational Properties
+
+        public virtual List<SaloonIssue> SaloonIssues { get; set; }
+
+        public virtual List<Stand> Stands { get; set; }
+
+
+
     }
 }

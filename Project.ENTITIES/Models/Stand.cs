@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Project.ENTITIES.Models
 {
-    internal class Stand
+    public class Stand:BaseEntity
     {
+        public string Area { get; set; }
+        public int? SaloonID { get; set; }
+
+        //Relational properties
+
+
+        public virtual Saloon Saloon { get; set; }
     }
 }
