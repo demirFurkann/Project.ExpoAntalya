@@ -54,7 +54,7 @@
     <Compile Include="DesignPatterns\SingletonPattern\DBTool.cs" />
     <Compile Include="GenericRepository\BaseRep\BaseRepository.cs" />
     <Compile Include="GenericRepository\ConcRep\CustomerRepository.cs" />
-    <Compile Include="GenericRepository\ConcRep\EmployeeMap.cs" />
+    <Compile Include="GenericRepository\ConcRep\EmployeeRepository.cs" />
     <Compile Include="GenericRepository\ConcRep\EmployeeProfileRepository.cs" />
     <Compile Include="GenericRepository\ConcRep\ExtraRepository.cs" />
     <Compile Include="GenericRepository\ConcRep\IssueRepository.cs" />

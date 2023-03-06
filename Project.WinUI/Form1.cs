@@ -1,4 +1,5 @@
-﻿using Project.ENTITIES.Models;
+﻿using Project.BLL.GenericRepository.ConcRep;
+using Project.ENTITIES.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,15 +18,24 @@ namespace Project.WinUI
         {
 
             InitializeComponent();
-        }
+			_emplyProfileRep = new EmployeeRepository();
 
-        private void btnLogin_Click(object sender, EventArgs e)
+		}
+        EmployeeRepository _emplyProfileRep;
+
+
+		private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            // if (_emplyProfileRep.Any(x => x.UserName == txtUserName.Text && x.Password == txtPassword.Text)) ;
+
+
+
             Employee em = new Employee();
             em.UserName = txtUserName.Text;
             em.Password = txtPassword.Text;
 
-            if (em.UserName =="admin" && em.Password =="123")
+            if (em.UserName == "admin" && em.Password == "123")
             {
                 MessageBox.Show("Welcome!");
                 Form2 frm2 = new Form2();
